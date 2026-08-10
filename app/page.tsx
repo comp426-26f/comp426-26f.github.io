@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 
 // TEMPORARY: Redirect home page to project showcase
 // To reverse this, simply delete this file
-/*
 export default function HomePage() {
   const router = useRouter();
 
@@ -16,4 +15,3 @@ export default function HomePage() {
   // Return null or a loading state while redirecting
   return null;
 }
-*/

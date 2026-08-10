@@ -9,7 +9,7 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace('/wrapped');
+    router.replace('/home');
   }, [router]);
 
   // Return null or a loading state while redirecting

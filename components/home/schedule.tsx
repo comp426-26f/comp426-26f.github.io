@@ -5,7 +5,7 @@ export function Schedule() {
   const sortedItems = allScheduleItems.sort((a, b) => {
     const dateA = new Date(a.date || '');
     const dateB = new Date(b.date || '');
-    return dateB.getTime() - dateA.getTime();
+    return dateA.getTime() - dateB.getTime();
   });
 
   return (

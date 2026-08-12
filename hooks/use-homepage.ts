@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 export function useHomepage() {
   const pathname = usePathname();
-  const isHomepage = pathname === '/';
+  const isHomepage = pathname === '/home';
 
   return { isHomepage };
 }

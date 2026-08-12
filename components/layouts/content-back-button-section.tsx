@@ -14,7 +14,7 @@ export default function ContentLayoutBackButtonSection({
 }) {
   const { isHomepage } = useHomepage();
   const { isWrapped } = useWrapped();
-  if (isHomepage) return null;
+//  if (isHomepage) return null;
 
   return (
     <aside
@@ -30,7 +30,7 @@ export default function ContentLayoutBackButtonSection({
         ) : (
           <Link href="/">
             <ChevronLeft className="size-4" />
-            Back
+            Back (changed)
           </Link>
         )}
       </Button>

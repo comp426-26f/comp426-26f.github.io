@@ -23,7 +23,7 @@ export default function ContentLayoutBackButtonSection({
         showToc ? 'w-[200px] lg:min-w-[100px] xl:min-w[200px]' : ''
       )}>
       <Button variant="ghost" asChild className="absolute top-0 right-0">
-        {isWrapped ? (
+        {isHomepage ? (
           <Link href="/home">
             <House className="size-4 text-muted-foreground" />
           </Link>

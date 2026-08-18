@@ -1,11 +1,12 @@
 ---
 code: R02
 title: TypeScript For the COMP 301 Java Developer
-due: "2025-08-26T23:59:59-04:00"
-published: false
+due: "2026-08-26T23:59:59-04:00"
+published: true
 authors:
     - ajaygandecha
     - krisjordan
+    - kmp
 ---
 
 ## Introduction
@@ -357,7 +358,7 @@ greet("Jade");
 While this seems like just a syntactic change, the implications of this are ***massive*** and opens the door to an entire new world of programming called **functional programming**, as we can pass around functions as values. This is something that we will be covering *extensively* throughout this course, however it is super important to become familiar with the arrow function syntax now so it is less suprising later!
 
 To conclude this section, provide two important caveats must be emphasized:
-* Arrow functions don't have their own `this` bindings and therefore should not be used when defining methods of a class.
+* Arrow functions bind `this` at the time of their definition and not dynamically at the time when they are called. Therefore, arrow functions should *not* be used when defining methods of a class when you want `this` to be bound to the instance when called.
 * Arrow functions cannot be used as constructors. Calling them with `new` throws a `TypeError`.
 
 These caveats are important to note because traditional functions and arrow functions are not *exactly* the same, and there are some semantic differences.

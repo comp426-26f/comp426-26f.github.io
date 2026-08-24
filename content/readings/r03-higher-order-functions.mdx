@@ -1,11 +1,12 @@
 ---
 code: R03
 title: Higher Order Functions
-due: "2025-09-02T23:59:59-04:00"
-published: false
+due: "2026-08-31T15:35:00-04:00"
+published: true
 authors:
     - ajaygandecha
     - krisjordan
+    - kmp
 ---
 
 ## Introduction and Recap
@@ -108,23 +109,21 @@ Calling such a function literal directly is possible, but rarely used in such a 
 
 (When such a construct is useful is a bit beyond our concerns, but as a hint it is a clever tactic for avoiding introducing any identifiers into a scope, like globals, while still giving you an isolated scope of function execution. In other words, it's useful in scenarios where might want to define a function and call it exactly once without giving any subsequent code the ability to call it again.)
 
-In a sense, it's similarly as infrequent to use as directly subscripting a string, such as:
-
-```ts
-"abcd"[2]
-```
-
 ```ts
 (num: number): number => {
     return num * 2;
 }
-// ... this does nothing without calling it directly!
+// ... this is an expression that evaluates to a function, 
+// but then does nothing with it so it is never called. 
+// Since it is also not stored anywhere, the value of the expression
+// (i.e., the new function) just dissapears.
 
 let doubleNumber = (num: number): number => {
     return num * 2;
 }
-// Better! We can refer to this function definition 
-// and call it from elsewhere.
+// Better! Now the view of the arrow expression (i.e., the new function) 
+// is stored in the variable doubleNumber. Using this variable,
+// we can refer to this function definition and call it from elsewhere.
 ```
 
 Hopefully, you are able to see how we can *use functions as values* to assign to a variable!
@@ -143,6 +142,8 @@ Just like with normal TypeScript variables, we can also apply type annotations t
 
 ```ts title="Arrow Function"
 /** Function that doubles the input number */
+// Here we do not have a type annocation for the variable doubleNumber
+// The type is being inferred as (num: number) => number
 let doubleNumber = (num: number): number => {
     return num * 2;
 }
@@ -150,6 +151,8 @@ let doubleNumber = (num: number): number => {
 // OR
 
 /** Function that doubles the input number */
+// Here we are providing the type annocation for teh variable
+// doubleNumber explicitly.
 let doubleNumber: (num: number) => number = (num: number): number => {
     return num * 2;
 }
@@ -392,15 +395,15 @@ Now, let's think about what we are actually trying to *return*. Let's think abou
 
 | Function Call | Expected Return Value |
 |---|---|
-| `generateMultiplyTransformerFunction(2)` | `(num: number) => number => { return num * 2; }` |
-| `generateMultiplyTransformerFunction(5)` | `(num: number) => number => { return num * 5; }` |
-| `generateMultiplyTransformerFunction(0.5)` | `(num: number) => number => { return num * 0.5; }` |
+| `generateMultiplyTransformerFunction(2)` | `(num: number): number => { return num * 2; }` |
+| `generateMultiplyTransformerFunction(5)` | `(num: number): number => { return num * 5; }` |
+| `generateMultiplyTransformerFunction(0.5)` | `(num: number): number => { return num * 0.5; }` |
 
 As you can see, there is a pattern emerging! Let's extrapolate such that we replace our input with an arbitrary `factor`:
 
 | Function Call | Expected Return Value |
 |---|---|
-| `generateMultiplyTransformerFunction(factor)` | `(num: number) => number => { return num * factor; }` |
+| `generateMultiplyTransformerFunction(factor)` | `(num: number): number => { return num * factor; }` |
 
 We have just found *what we want our function to return!* Let's finish implementing the `generateMultiplyTransformerFunction` function.
 

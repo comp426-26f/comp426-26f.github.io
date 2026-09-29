@@ -1,8 +1,8 @@
 ---
 code: A03
 title: NYT Games
-due: "2025-10-01T23:59:59-04:00"
-published: false
+due: "2026-10-11T23:59:59-04:00"
+published: true
 ---
 
 <Callout type="blue">
@@ -18,32 +18,21 @@ In this assignment, you will be recreating two famous New York Times games - [**
 
 ## Prerequisites
 
-You will need to have Docker Desktop installed on your computer. If you do not have these installed, please use the following links to download and install them:
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop)
-    *Make sure to have this app open before getting started!*
-
-Also, please install the Docker DevContainers extension for VS Code. This will allow you to open this project in a Docker DevContainer! Install here: [Docker DevContainers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-**You will also need to be caught up with COMP426 lectures through L10**.
+**You will need to be caught up with COMP426 lectures through L10**.
 
 ## Getting Started
 
 To get started on this assignment, please complete the following steps:
 
-1. Accept the **GitHub Classroom** assignment [here](https://classroom.github.com/a/K6d4GeZJ). Reminder, you may work with at *most one other person for this assignment!* Both partners must accept the assignment and join the same group in GitHub Classroom. If you choose to work with a partner, you will submit one group submission on GradeScope. Both partners will receive the same grade for the assignment.
+1. Accept the **Classroom50** assignment [here](https://classroom50.org/comp426-26f/comp-426/assignments/a03-nyt-games/accept). Reminder, you may work with at *most one other person for this assignment!* Both partners must accept the assignment and join the same group in Classroom50. If you choose to work with a partner, you will submit one group submission on GradeScope. Both partners will receive the same grade for the assignment.
 
 2. Clone the repository to your local machine. You can either do this by:
     - Using the CLI / Terminal: `git clone <repository-url>`
     - Using [GitHub Desktop](https://desktop.github.com/download/): Click on the green "Code" button and select "Open with GitHub Desktop".
 3. Open the cloned repository in Visual Studio Code.
-4. You will now see a pop-up in the bottom right corner of your screen that says "Folder contains a Dev Container configuration file. Reopen folder to develop in a container". Click on "Reopen in Container". This will boot up a Docker container, a virtual environment that will have the correct version of Node installed for you. We will use Docker for this assignment to ensure that everyone in the class is using the same up-to-date version of Node - ensuring consistency amongst students in the class and (hopefully) to prevent compatibility issues!
-    - If you do not see this pop-up, you can also open the VS Code Command Palette (Cmd + Shift + P) and search for "Remote-Containers: Reopen in Container".
-    - Again, you must ensure that you install the extension linked in the "Prerequisites" section above for this to work! If you did install this extension and are still having issues, try to reload VS Code.
-5. The Docker container will be open once you see the green "Dev Container" icon in the bottom left corner of your VS Code window! You can now ensure that Node is installed by running `node -v` in the terminal. You should see a version number printed out.
-6. If you have many detected changes in the Git tab of VSCode after the container builds, you may *clear all changes*. 
-7. Now, install the node packages required for this project by running `npm install` in the terminal. This will install all of the dependencies listed in the `package.json` file.
-8. You can now run the project by running `npm run dev` in the terminal. This will start a local dev server that will host your website. Your website would then be accessible at the url `http://localhost:4260` in your browser. 
-9. Navigate to this URL. You should see the home page for the NYT Games app with buttons to play either Wordle or Connections!
+4. Now, install the node packages required for this project by running `npm install` in the terminal. This will install all of the dependencies listed in the `package.json` file.
+5. You can now run the project by running `npm run dev` in the terminal. This will start a local dev server that will host your website. Your website would then be accessible at the url `http://localhost:4260` in your browser. 
+6. Navigate to this URL. You should see the home page for the NYT Games app with buttons to play either Wordle or Connections!
 
 ## Project Structure and Architecture
 
@@ -123,7 +112,7 @@ Now that you have created the `Tile` component, you can now complete the impleme
 <Callout type="gray">
         **External APIs:**<br />
 
-        The Wordle game will require accessing external data via an API call. The API has been created for you and is accessible at this URL: `https://comp426-apis.vercel.app/api/wordle`. The API has two endpoints:
+        The Wordle game will require accessing external data via an API call. The API has been created for you and is accessible at this URL: `https://comp426f26-apis.vercel.app/api/wordle`. The API has two endpoints:
 
         - `GET /api/wordle/word-validator/[word]` This endpoint determines if a provided 5-letter word is a valid guess (word exists in the dictionary). This endpoint will be used to ensure that all guesses from the user are valid words.
 
@@ -132,7 +121,7 @@ Now that you have created the `Tile` component, you can now complete the impleme
         Remember from the asynchronous programming lecture that we can load data asynchronously using the fetch API. We can then use .then()` method of the returned promise to work with the data, like so:
 
         ```ts
-        await fetch(`url here`)
+        fetch(`url here`)
             .then((response) => response.json())
             .then((data) => {
                 // do something with the data

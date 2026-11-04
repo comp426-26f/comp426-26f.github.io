@@ -1,8 +1,8 @@
 ---
 code: A05
 title: Oriole
-due: "2025-10-31T23:59:59-04:00"
-published: false
+due: "2026-11-15T23:59:59-04:00"
+published: true
 ---
 
 ## Synopsis
@@ -15,28 +15,19 @@ The app itself will be built using Next.js, deployed live to the internet via Ve
 
 This is our first assignment with Supabase. If you have not already, make sure that you have signed up for a free account at [Supabase.io](https://supabase.io/). Once you have signed up for an account, you will be ready to move to the next steps.
 
-If you have not already, please install the Docker DevContainers extension for VS Code. This will allow you to open this project in a Docker DevContainer.
-
-Install here: [Docker DevContainers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
 **In addition, please be sure to complete the ([Pre-Reading](/readings/r07-oriole-prereading)) before starting this assignment.**
 
 ## Getting Started
 
 To get started on this assignment, please complete the following steps:
 
-1. Accept the **GitHub Classroom** assignment [here](https://classroom.github.com/a/wMxc6LDI). *This is an individual assignment so that everyone is able to practice using the tools we have introduced recently in class*.
+1. Accept the **Classroom50** assignment [here](https://classroom50.org/comp426-26f/comp-426/assignments/a05-oriole/accept). *This is an individual assignment so that everyone is able to practice using the tools we have introduced recently in class*.
 2. Clone the repository to your local machine. You can either do this by:
     - Using the CLI / Terminal: `git clone <repository-url>`
     - Using [GitHub Desktop](https://desktop.github.com/download/): Click on the green "Code" button and select "Open with GitHub Desktop".
 3. Open the cloned repository in Visual Studio Code.
-4. You will now see a pop-up in the bottom right corner of your screen that says "Folder contains a Dev Container configuration file. Reopen folder to develop in a container". Click on "Reopen in Container". This will boot up a Docker container, a virtual environment that will have the correct version of Node installed for you. We will use Docker for this assignment to ensure that everyone in the class is using the same up-to-date version of Node - ensuring consistency amongst students in the class and (hopefully) to prevent compatibility issues!
-    * If you do not see this pop-up, you can also open the VS Code Command Palette (Cmd + Shift + P) and search for "Remote-Containers: Reopen in Container".
-    * Again, you must ensure that you install the extension linked in the "Prerequisites" section above for this to work! If you did install this extension and are still having issues, try to reload VS Code.
-5. The Docker container will be open once you see the green "Dev Container" icon in the bottom left corner of your VS Code window! You can now ensure that Node is installed by running `node -v` in the terminal. You should see a version number printed out.
-6. If you have many detected changes in the Git tab of VSCode after the container builds, you may *clear all changes*. 
-7. Now, install the node packages required for this project by running `npm install` in the terminal. This will install all of the dependencies listed in the `package.json` file.
-8. You can now run the project by running `npm run dev` in the terminal. This will start a local dev server that will host your website. Your website would then be accessible at the url `http://localhost:3000` in your browser. 
+4. Now, install the node packages required for this project by running `npm install` in the terminal. This will install all of the dependencies listed in the `package.json` file.
+5. You can now run the project by running `npm run dev` in the terminal. This will start a local dev server that will host your website. Your website would then be accessible at the url `http://localhost:3000` in your browser. 
 
 ## Setting up Supabase
 
@@ -44,18 +35,14 @@ Now that you have a Supabase account, if you are new to Supabase, you will be pr
 
 ![supabase-org](/images/assignments/a05/supabase-org.png)
 
-
 Press "Create organization". Once you have an organization, you can create your project for a05.
 
-There are many steps you will need to create to fully configure your Supabase project. These steps are summarized in the video below. Follow along as I explain the setup process:
-
-<ResponsiveIFrame src={'https://www.youtube.com/embed/nHK2h0ab3UA?si=5pOmibRA7swv0ZdE' } />
-
-By the conclusion of following along with the video, you should have:
+There are many steps you will need to create to fully configure your Supabase project. These steps were demonstrated in class on 11/4/2026. See the video from the lecture to follow along, but briefly the steps are:
 
 - **Created a Supabase Project:** Created a Supabase project for a05.
 - **Configured Supabase Auth**: Configured Supabase Auth for use with email / password authentication, *turning off email confirmation.*
 - **Configured Supabase Storage**: Created the `images` and `avatars` buckets in Supabase Storage and added RLS policies to ensure anyone can perform operations on these buckets.
+- **Set up environment variables**: Create a .env file from the .env.example file and copy values provided by Supabase.
 
 ## Exploring Oriole
 
@@ -98,7 +85,7 @@ If these steps fail, delete **all** tables in the Database tab of Supabase, chec
 
 Next, you will add the functionality for handling log ins and sign ups in Oriole. To do this, complete the `TODO` items in `/pages/login.tsx` and `/pages/signup.tsx`. 
 
-To do this, check out **Step 4** of [these docs](https://supabase.com/docs/guides/auth/server-side/nextjs?queryGroups=router&router=pages), showing the exact `supabase.auth` functions to call for both signing in (logging in) and signing up!
+To do this, check out [these docs](https://supabase.com/docs/guides/auth/passwords?queryGroups=flow&flow=implicit), showing the exact `supabase.auth` functions to call for both signing in (logging in) and signing up!
 
 ### Step 3: Complete the API Endpoints
 
@@ -141,10 +128,6 @@ export default function Testing() {
   // mutate(newPostObject);
 }
 ```
-
-### Step 4: Implement Infinite Scrolling
-
-Complete the `TODO` item in `index.tsx`. The comments in the file will guide you on what you need to do. Infinite scrolling is a very common feature of social media apps, where you load chunks of your feed at a time as you scroll. The next chunk of your feed is loaded when you scroll near the end of your feed and is appended to the bottom of your feed.
 
 ### Wrapping Up
 

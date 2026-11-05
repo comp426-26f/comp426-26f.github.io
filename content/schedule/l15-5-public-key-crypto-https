@@ -1,0 +1,15 @@
+---
+date: "2026-11-02T15:35:30Z"
+subject: backend
+code: L15.5
+title: Public key cryptography, 3rd party auth, HTTPS
+recordingUrl: "https://uncch.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8ca77fed-d799-4386-a7d3-b4f80176f65f"
+slideshowUrl: "https://workflowy.com/s/security-and-authent/f6IdlMucytGlzRDq"
+synopsis: "Students learn about public key cryptography as the basis for 3rd party authentication via signed certificates. This is the basis for server authentication and TLS as used for HTTPS."
+relatedCourses:
+  - code: "435"
+    description: "COMP 435 (Computer Security Concepts) introduces students to introductory computer security concepts, including authentication, web security, and some of the cryptographic primitives used behind signing and verifying JWTs."
+  - code: "537"
+    description: "COMP 537 (Cryptography) provides a more in-depth overview of key cryptographic primitives, including those that underpin authentication and web security."
+---
+
